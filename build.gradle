@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.bharathc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    implementation 'org.seleniumhq.selenium:selenium-java:4.4.0'
+    implementation('io.appium:java-client:8.1.1') {
+        exclude group: "org.seleniumhq.selenium", module: "*"
+    }
+    testImplementation 'org.testng:testng:7.5'
+
+    testImplementation 'org.assertj:assertj-core:3.22.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useTestNG()
+//    useJUnitPlatform()
+}
